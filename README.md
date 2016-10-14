@@ -1,3 +1,3 @@
-# Tutorial
+# CSC 331
 
-This is my tutorial repository.
+These are some files from my CSC 331 Course at UNCW
