@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package mathGame;
 
 import java.awt.event.ActionEvent;
@@ -17,14 +15,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 
-/**
- * @author Jack
- *
- */
 public class TopMenu {
 	JTextArea output;
 	JScrollPane scrollPane;
-	String fileName;
 	/**
 	 * Creates 2 top menu options with radio options and checkbox items and
 	 * submenu.
@@ -35,8 +28,6 @@ public class TopMenu {
 	public JMenuBar menu(MathViewer viewer) {
 		JMenuBar menuBar;
 		JMenu menu;
-		JMenu submenu;
-		fileName = "bear.jpg";
 		// Creates the first menu
 		menuBar = new JMenuBar();
 
@@ -83,108 +74,40 @@ public class TopMenu {
 
 		// Group of checkbox items. Select multiple
 		menu.addSeparator();
-		JCheckBoxMenuItem checkboxItemA = new JCheckBoxMenuItem("Select multiple (\"Checkbox\") add/sub");
+		JCheckBoxMenuItem checkboxItemA = new JCheckBoxMenuItem("Add/Subtract");
 		checkboxItemA.setMnemonic(KeyEvent.VK_7);
 		checkboxItemA.setSelected(true);
 		menu.add(checkboxItemA);
 
-		JCheckBoxMenuItem checkboxItemB = new JCheckBoxMenuItem("Select multiple (\"Checkbox\") mul/div");
+		JCheckBoxMenuItem checkboxItemB = new JCheckBoxMenuItem("Multiplication/Division");
 		checkboxItemB.setMnemonic(KeyEvent.VK_8);
 		checkboxItemB.setSelected(true);
 		menu.add(checkboxItemB);
 
-		JCheckBoxMenuItem checkboxItemC = new JCheckBoxMenuItem("Select multiple (\"Checkbox\") mixed");
-		checkboxItemC.setMnemonic(KeyEvent.VK_9);
-		checkboxItemC.setSelected(true);
-		menu.add(checkboxItemC);
-
-		/*// Add a submenu
-		menu.addSeparator();
-		submenu = new JMenu("Submenu");
-		submenu.setMnemonic(KeyEvent.VK_8);
-
-		JMenuItem menuItemC = new JMenuItem("Item for submenu", KeyEvent.VK_9);
-		menuItemC.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.ALT_MASK));
-		submenu.add(menuItemC);
-
-		JMenuItem menuItemD = new JMenuItem("2nd item for submenu", KeyEvent.VK_0);
-		submenu.add(menuItemD);
-		menu.add(submenu);
-
-		// Second Option in top menu bar
-		menu = new JMenu("Pig Menu 2");
-		menu.setMnemonic(KeyEvent.VK_A);
-		menu.getAccessibleContext().setAccessibleDescription("This also does nothing");
-		menuBar.add(menu);
-
-		JMenuItem menuItemE = new JMenuItem("Walk 1st column of pigs");
-		menuItemE.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, ActionEvent.ALT_MASK));
-		menu.add(menuItemE);
-
-		JMenuItem menuItemF = new JMenuItem("Walk 2nd column of pigs");
-		menuItemE.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_4, ActionEvent.ALT_MASK));
-		menu.add(menuItemF);
-
-		JMenuItem menuItemG = new JMenuItem("Walk 3rd column of pigs");
-		menuItemE.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_5, ActionEvent.ALT_MASK));
-		menu.add(menuItemG);
-*/
-		// PigViewer viewer = new PigViewer();
-
 		menuItemA.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				MathViewer.Size2x2();
 				System.out.println("You selected 2 x 2");
 			}
 		});
 
 		menuItemB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				MathViewer.Size3x3();
 				System.out.println("You selected 3 x 3");
 			}
 		});
 		
 		menuItemC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				MathViewer.Size4x4();
 				System.out.println("You selected 4 x 4");
 			}
 		});
-/*
-		menuItemC.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("You clicked on the 1st submenu option");
-				System.out.println("...Does nothing.");
-			}
-		});
 
-		menuItemD.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("You clicked on the 2nd submenu option");
-				System.out.println("...Does nothing.");
-			}
-		});
-
-		menuItemE.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("You clicked on the 1st menu option for Menu Pig 2");
-			}
-		});
-
-		menuItemF.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("You clicked on the 2nd menu option for Menu Pig 2");
-				
-			}
-		});
-
-		menuItemG.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("You clicked on the 1st menu option for Menu Pig 2");
-				
-			}
-		});
-*/
 		radioItemA.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String image = "ThemeA.jpg";
 				System.out.println("You clicked on the 1st radio menu option");
 				
 			}
@@ -192,6 +115,7 @@ public class TopMenu {
 
 		radioItemB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String image = "ThemeB.jpg";
 				System.out.println("You clicked on the 2nd radio menu option");
 				
 			}
@@ -199,37 +123,12 @@ public class TopMenu {
 		
 		radioItemC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String image = "ThemeC.jpg";
 				System.out.println("You clicked on the 3rd radio menu option");
 				
 			}
 		});
-/*
-		checkboxItemA.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("You clicked on the 1st checkbox menu option");
-				
-			}
-		});
 
-		checkboxItemB.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("You clicked on the 2nd checkbox menu option");
-				
-				if (checkboxItemB.isSelected()) {
-					System.out.println("checkbosItemB is selected");
-				} else {
-					System.out.println("checkbosItemB is unselected");
-				}
-			}
-		});
-
-		checkboxItemC.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("You clicked on the 2nd checkbox menu option");
-				
-			}
-		});
-*/
 		return menuBar;
 	}
 

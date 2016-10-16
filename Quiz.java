@@ -27,22 +27,35 @@ public static String MultDiv(){
 		return "/";	
 	}
 }
+
+//Random math problem of any kind
+public static String Rand(){
+	int mathSymbol = 0;
+	String Mathematics = " ";
+	mathSymbol = (int)(Math.random()*100)%4;
+	if (mathSymbol == 0){
+		return "x";
+	}
+	else if(mathSymbol == 1){
+		return "/";	
+	}
+	else if(mathSymbol == 2){
+		return "+";	
+	}
+	else{
+		return "-";
+	}
+}
+
+
 //Creates and holds the problems in an array Questions
 public static void main(String[]args){
 	int numfamily = 0;//holds num family number for problem creation 0-12
 	ArrayList<String> Questions = new ArrayList<String>();//holds the questions to add to the game by frame numbers
-	/*int mathSymbol = 0;
-	mathSymbol = (int)(Math.random()*100)%2;
-	if (mathSymbol == 0){
-		String Mathematics = "+";
-	}
-	else{
-		String Mathematics = "-";	
-	}*/
 	for (int i= 0; Questions.size() <= 15;i++){// 3 will be changed to gameMOde based on the number of squares
 		int problemPiece = (int)(Math.random()*100);
 		String callMath = " ";
-		callMath = MultDiv();
+		callMath = Rand();
 		Questions.add(numfamily + callMath + problemPiece);
 	}
 	System.out.print(Questions);
