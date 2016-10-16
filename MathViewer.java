@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package mathGame;
 
 import java.awt.BorderLayout;
@@ -14,10 +12,6 @@ import java.io.FileInputStream;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
-/**
- * @author Jack
- *
- */
 public class MathViewer extends JFrame {
 	private GamePanel gamePanel;
 	private static final long serialVersionUID = 1L;
@@ -108,25 +102,42 @@ public class MathViewer extends JFrame {
 	 */
 	public static void main(String[] args) {
 		Image[] imgs = null;
+		MathViewer mv = new MathViewer(imgs);
+		Size2x2();
+		Size3x3();
+		Size4x4();
+	}
+
+	static void Size4x4() {
+		// TODO Auto-generated method stub
+		Image[] imgs = null;
+		String image = TopMenu.
+		try {
+			imgs = splitImage("bear.jpg", 4, 4, false);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	static void Size3x3() {
+		// TODO Auto-generated method stub
+		Image[] imgs = null;
+		try {
+			imgs = splitImage("bear.jpg", 3, 3, false);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	static void Size2x2() {
+		// TODO Auto-generated method stub
+		Image[] imgs = null;
 		try {
 			imgs = splitImage("bear.jpg", 2, 2, false);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		MathViewer mv = new MathViewer(imgs);
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		mv.setImages("bear.jpg", 3, 3);
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		mv.setImages("bear.jpg", 4, 4);
-
+		
 	}
 
 }

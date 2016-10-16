@@ -65,7 +65,7 @@ public class ImageSplitter {
 	}
 
 	public static void main(String[] args) throws Exception {
-		String fileName = "bear.jpg";
+		String fileName = TopMenu.ButtonGroup();
 		Image[] imgs = ImageSplitter.splitImage(fileName, 2, 2, false);
 	}
 
