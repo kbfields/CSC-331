@@ -3,7 +3,6 @@
  */
 package mathGame;
 
-import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
