@@ -102,18 +102,17 @@ public class MathViewer extends JFrame {
 	 */
 	public static void main(String[] args) {
 		Image[] imgs = null;
+		imgs = splitImage("bear.jpg", 4, 4, false);
 		MathViewer mv = new MathViewer(imgs);
-		Size2x2();
-		Size3x3();
-		Size4x4();
 	}
 
 	static void Size4x4() {
 		// TODO Auto-generated method stub
 		Image[] imgs = null;
-		String image = TopMenu.
+		//String fileName = ImageSplitter.getFileName()
 		try {
-			imgs = splitImage("bear.jpg", 4, 4, false);
+			imgs = splitImage("ThemeA.jpg", 4, 4, false);
+			MathViewer mv = new MathViewer(imgs);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -123,7 +122,8 @@ public class MathViewer extends JFrame {
 		// TODO Auto-generated method stub
 		Image[] imgs = null;
 		try {
-			imgs = splitImage("bear.jpg", 3, 3, false);
+			imgs = splitImage("ThemeB.jpg", 3, 3, false);
+			MathViewer mv = new MathViewer(imgs);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -133,7 +133,8 @@ public class MathViewer extends JFrame {
 		// TODO Auto-generated method stub
 		Image[] imgs = null;
 		try {
-			imgs = splitImage("bear.jpg", 2, 2, false);
+			imgs = splitImage("ThemeC.jpg", 2, 2, false);
+			MathViewer mv = new MathViewer(imgs);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

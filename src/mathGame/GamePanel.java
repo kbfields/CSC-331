@@ -14,13 +14,14 @@ import javax.swing.JPanel;
  */
 public class GamePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
-	GPanel[] gPanels;
+	GButton[] gButtons;
 	public GamePanel() {
 	}
 
 	public void addImages(Image[] imgs) {
 		for(Image img : imgs)
-			add(new GPanel(img));
+			add(new GButton(img));
+			
 	}
 	
 
@@ -31,6 +32,7 @@ public class GamePanel extends JPanel {
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GamePanel gp = new GamePanel();
 		gp.addImages(imgs);
+	
 		f.add(gp);
 
 		f.pack();

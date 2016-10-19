@@ -63,9 +63,13 @@ public class ImageSplitter {
 		return images;
 
 	}
-
+	
+	static String getFileName(String photo) {
+		// TODO Auto-generated method stub		
+		return photo;
+	}
 	public static void main(String[] args) throws Exception {
-		String fileName = TopMenu.ButtonGroup();
+		String fileName = "ThemeA.jpg";
 		Image[] imgs = ImageSplitter.splitImage(fileName, 2, 2, false);
 	}
 

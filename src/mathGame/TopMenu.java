@@ -77,11 +77,13 @@ public class TopMenu {
 		JCheckBoxMenuItem checkboxItemA = new JCheckBoxMenuItem("Add/Subtract");
 		checkboxItemA.setMnemonic(KeyEvent.VK_7);
 		checkboxItemA.setSelected(true);
+		Quiz.MathSymbol();
 		menu.add(checkboxItemA);
 
 		JCheckBoxMenuItem checkboxItemB = new JCheckBoxMenuItem("Multiplication/Division");
 		checkboxItemB.setMnemonic(KeyEvent.VK_8);
 		checkboxItemB.setSelected(true);
+		Quiz.MultDiv();
 		menu.add(checkboxItemB);
 
 		menuItemA.addActionListener(new ActionListener() {
@@ -107,7 +109,7 @@ public class TopMenu {
 
 		radioItemA.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String image = "ThemeA.jpg";
+				String image = ImageSplitter.getFileName("ThemeA.jpg");
 				System.out.println("You clicked on the 1st radio menu option");
 				
 			}
@@ -115,7 +117,7 @@ public class TopMenu {
 
 		radioItemB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String image = "ThemeB.jpg";
+				String image = ImageSplitter.getFileName("ThemeB.jpg");
 				System.out.println("You clicked on the 2nd radio menu option");
 				
 			}
@@ -123,7 +125,7 @@ public class TopMenu {
 		
 		radioItemC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String image = "ThemeC.jpg";
+				String image = ImageSplitter.getFileName("ThemeC.jpg");
 				System.out.println("You clicked on the 3rd radio menu option");
 				
 			}
