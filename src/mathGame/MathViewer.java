@@ -102,11 +102,23 @@ public class MathViewer extends JFrame {
 	 */
 	public static void main(String[] args) {
 		Image[] imgs = null;
-		imgs = splitImage("bear.jpg", 4, 4, false);
+		imgs = splitImage(getImage(), 4, 4, false);
 		MathViewer mv = new MathViewer(imgs);
 	}
-
-	static void Size4x4() {
+	
+	static String getImage(){
+		if (TopMenu.radioItemA.addActionListener == true){
+			String visual = "ThemeA.jpg";
+		}
+		else if(TopMenu.radioItemB.addActionListener== true){
+			String visual = "ThemeB.jpg";
+		}
+		else{
+			String visual = "ThemeC.jpg"
+		}
+		return visual;
+	}
+	static void Size4x4(String visual) {
 		// TODO Auto-generated method stub
 		Image[] imgs = null;
 		//String fileName = ImageSplitter.getFileName()

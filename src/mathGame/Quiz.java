@@ -48,10 +48,13 @@ public static String Rand(){
 }
 
 //Decides if the problem is correct
-public static boolean MathChecker(int guess){
+public static boolean MathChecker(int guess, String[] Quiz){
 	for(int i = 0; i< 3; i++){
-		if (guess == Questions[current]){//Supposed to check to see if the users guess is equal to to the result of the math problem
+		if (guess == Quiz[currentQuestion]){//Supposed to check to see if the users guess is equal to to the result of the math problem
 			return true;
+		}
+		else{
+			return false;
 		}
 	}
 }
@@ -59,12 +62,13 @@ public static boolean MathChecker(int guess){
 
 //Creates and holds the problems in an array Questions
 public static void main(String[]args){
+	int X = GameTiles.length();
 	int numfamily = 0;//holds num family number for problem creation 0-12 from user input
 	ArrayList<String> Questions = new ArrayList<String>();//holds the questions to add to the game by frame numbers
-	for (int i= 0; Questions.size() <= 15;i++){// 3 will be changed to gameMOde based on the number of squares
+	for (int i= 0; Questions.size() <= X;i++){// length of X will be changed to gameMOde based on the number of squares
 		int problemPiece = (int)(Math.random()*100);
 		String callMath = " ";
-		callMath = Rand();//Change for user input when one or both clicked
+		callMath = Rand();//Change for user input when one or both clicked from menu
 		Questions.add(numfamily + callMath + problemPiece);//Adds math problems to and array
 	}
 	System.out.print(Questions);

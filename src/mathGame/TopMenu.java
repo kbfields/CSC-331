@@ -40,7 +40,7 @@ public class TopMenu {
 		// Type Alt+1 to shortcut the first option without the menu displayed
 		menuItemA.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
 		menuItemA.getAccessibleContext().setAccessibleDescription("Creates 4 Math Problems");
-		// Add the first option under "Pig Menus"
+		// Add the first option 
 		menu.add(menuItemA);
 		// Adds a second option
 		JMenuItem menuItemB = new JMenuItem("3 x 3", KeyEvent.VK_2);
@@ -72,20 +72,30 @@ public class TopMenu {
 		radiogroup.add(radioItemC);
 		menu.add(radioItemC);
 
-		// Group of checkbox items. Select multiple
+		// Separator & new button group
 		menu.addSeparator();
-		JCheckBoxMenuItem checkboxItemA = new JCheckBoxMenuItem("Add/Subtract");
-		checkboxItemA.setMnemonic(KeyEvent.VK_7);
-		checkboxItemA.setSelected(true);
-		Quiz.MathSymbol();
-		menu.add(checkboxItemA);
+		ButtonGroup radiogroup2 = new ButtonGroup();
+		// Creates either/or options
+		JRadioButtonMenuItem radioItemD = new JRadioButtonMenuItem("Add/Subtract");
+		radioItemD.setSelected(true);
+		// Assigns shortcut
+		radioItemD.setMnemonic(KeyEvent.VK_7);
+		radiogroup2.add(radioItemD);
+		menu.add(radioItemD);
 
-		JCheckBoxMenuItem checkboxItemB = new JCheckBoxMenuItem("Multiplication/Division");
-		checkboxItemB.setMnemonic(KeyEvent.VK_8);
-		checkboxItemB.setSelected(true);
-		Quiz.MultDiv();
-		menu.add(checkboxItemB);
-
+		JRadioButtonMenuItem radioItemE = new JRadioButtonMenuItem("Multiply/Divide");
+		radioItemE.setMnemonic(KeyEvent.VK_8);
+		radiogroup2.add(radioItemE);
+		menu.add(radioItemE);
+				
+		JRadioButtonMenuItem radioItemF = new JRadioButtonMenuItem("Random");
+		radioItemF.setMnemonic(KeyEvent.VK_9);
+		radiogroup2.add(radioItemF);
+		menu.add(radioItemF);
+		
+		//Action Listeners for buttons
+		
+		//Dimensions and game
 		menuItemA.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MathViewer.Size2x2();
@@ -106,9 +116,9 @@ public class TopMenu {
 				System.out.println("You selected 4 x 4");
 			}
 		});
-
+		//Photo booth
 		radioItemA.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				String image = ImageSplitter.getFileName("ThemeA.jpg");
 				System.out.println("You clicked on the 1st radio menu option");
 				
@@ -116,7 +126,7 @@ public class TopMenu {
 		});
 
 		radioItemB.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				String image = ImageSplitter.getFileName("ThemeB.jpg");
 				System.out.println("You clicked on the 2nd radio menu option");
 				
@@ -124,9 +134,33 @@ public class TopMenu {
 		});
 		
 		radioItemC.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				String image = ImageSplitter.getFileName("ThemeC.jpg");
 				System.out.println("You clicked on the 3rd radio menu option");
+				
+			}
+		});
+		//Listeners for Operands
+		radioItemD.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Quiz.MathSymbol();
+				System.out.println("You clicked on the 1st Add/Subtract option");
+				
+			}
+		});
+		
+		radioItemE.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Quiz.MultDiv();
+				System.out.println("You clicked on the 2nd Multiplication/Divsion option");
+				
+			}
+		});
+		
+		radioItemF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Quiz.Rand();
+				System.out.println("You clicked on the 3rd radio Random Equations option");
 				
 			}
 		});
