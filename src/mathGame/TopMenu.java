@@ -4,9 +4,7 @@ package mathGame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-
 import javax.swing.ButtonGroup;
-import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -51,7 +49,7 @@ public class TopMenu {
 		menuItemC.getAccessibleContext().setAccessibleDescription("Creates 16 Math Problems");		
 		menu.add(menuItemC);
 
-		// Separator & new button group
+		// Picture
 		menu.addSeparator();
 		ButtonGroup radiogroup = new ButtonGroup();
 		// Creates either/or options
@@ -72,7 +70,7 @@ public class TopMenu {
 		radiogroup.add(radioItemC);
 		menu.add(radioItemC);
 
-		// Separator & new button group
+		// Operands
 		menu.addSeparator();
 		ButtonGroup radiogroup2 = new ButtonGroup();
 		// Creates either/or options
@@ -93,25 +91,84 @@ public class TopMenu {
 		radiogroup2.add(radioItemF);
 		menu.add(radioItemF);
 		
+		//Number family
+		menu.addSeparator();
+		ButtonGroup radiogroup3 = new ButtonGroup();
+		// Creates either/or options
+		JRadioButtonMenuItem radioItemG = new JRadioButtonMenuItem("0");
+		radioItemG.setSelected(true);
+		// Assigns shortcut
+		radiogroup3.add(radioItemG);
+		menu.add(radioItemG);
+
+		JRadioButtonMenuItem radioItemH = new JRadioButtonMenuItem("1");
+		radiogroup3.add(radioItemH);
+		menu.add(radioItemH);
+				
+		JRadioButtonMenuItem radioItemI = new JRadioButtonMenuItem("2");
+		radiogroup3.add(radioItemI);
+		menu.add(radioItemI);
+		JRadioButtonMenuItem radioItemJ = new JRadioButtonMenuItem("3");;
+		// Assigns shortcut
+		radiogroup3.add(radioItemJ);
+		menu.add(radioItemJ);
+
+		JRadioButtonMenuItem radioItemZ = new JRadioButtonMenuItem("4");
+		radiogroup3.add(radioItemZ);
+		menu.add(radioItemZ);
+				
+		JRadioButtonMenuItem radioItemK = new JRadioButtonMenuItem("5");
+		radiogroup3.add(radioItemK);
+		menu.add(radioItemK);
+		
+		JRadioButtonMenuItem radioItemL = new JRadioButtonMenuItem("6");
+		// Assigns shortcut
+		radiogroup3.add(radioItemL);
+		menu.add(radioItemL);
+
+		JRadioButtonMenuItem radioItemM = new JRadioButtonMenuItem("7");
+		radiogroup3.add(radioItemM);
+		menu.add(radioItemM);
+				
+		JRadioButtonMenuItem radioItemN = new JRadioButtonMenuItem("8");
+		radiogroup3.add(radioItemN);
+		menu.add(radioItemN);
+		
+		JRadioButtonMenuItem radioItemO = new JRadioButtonMenuItem("9");
+		radiogroup3.add(radioItemO);
+		menu.add(radioItemO);
+		
+		JRadioButtonMenuItem radioItemP = new JRadioButtonMenuItem("10");
+		radiogroup3.add(radioItemP);
+		menu.add(radioItemP);
+		
+		JRadioButtonMenuItem radioItemQ = new JRadioButtonMenuItem("11");
+		radiogroup3.add(radioItemQ);
+		menu.add(radioItemQ);
+		
+		JRadioButtonMenuItem radioItemR = new JRadioButtonMenuItem("12");
+		radiogroup3.add(radioItemR);
+		menu.add(radioItemR);
+
 		//Action Listeners for buttons
 		
 		//Dimensions and game
 		menuItemA.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				MathViewer.Size2x2();
 				System.out.println("You selected 2 x 2");
 			}
 		});
 
 		menuItemB.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				MathViewer.Size3x3();
 				System.out.println("You selected 3 x 3");
 			}
 		});
 		
 		menuItemC.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				MathViewer.Size4x4();
 				System.out.println("You selected 4 x 4");
 			}
@@ -119,7 +176,7 @@ public class TopMenu {
 		//Photo booth
 		radioItemA.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String image = ImageSplitter.getFileName("ThemeA.jpg");
+				MathViewer.getImage(0);
 				System.out.println("You clicked on the 1st radio menu option");
 				
 			}
@@ -127,7 +184,7 @@ public class TopMenu {
 
 		radioItemB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String image = ImageSplitter.getFileName("ThemeB.jpg");
+				MathViewer.getImage(1);
 				System.out.println("You clicked on the 2nd radio menu option");
 				
 			}
@@ -135,7 +192,7 @@ public class TopMenu {
 		
 		radioItemC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String image = ImageSplitter.getFileName("ThemeC.jpg");
+				MathViewer.getImage(2);
 				System.out.println("You clicked on the 3rd radio menu option");
 				
 			}
@@ -143,7 +200,7 @@ public class TopMenu {
 		//Listeners for Operands
 		radioItemD.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Quiz.MathSymbol();
+				Quiz.getMath(Quiz.MathSymbol());
 				System.out.println("You clicked on the 1st Add/Subtract option");
 				
 			}
@@ -151,16 +208,116 @@ public class TopMenu {
 		
 		radioItemE.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Quiz.MultDiv();
-				System.out.println("You clicked on the 2nd Multiplication/Divsion option");
+				Quiz.getMath(Quiz.MultDiv());
+				System.out.println("You clicked on the 2nd Multiplication/Division option");
 				
 			}
 		});
 		
 		radioItemF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Quiz.Rand();
+				Quiz.getMath(Quiz.Rand());
 				System.out.println("You clicked on the 3rd radio Random Equations option");
+				
+			}
+		});
+		
+		//Math family listeners
+		radioItemG.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MathViewer.NumberFamily(0);
+				System.out.println("You clicked on the 0 number family menu option");
+				
+			}
+		});
+		
+		radioItemH.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MathViewer.NumberFamily(1);
+				System.out.println("You clicked on the 1 number family option");
+				
+			}
+		});
+		
+		radioItemI.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MathViewer.NumberFamily(2);
+				System.out.println("You clicked on the 2 number family option");
+				
+			}
+		});
+		
+		radioItemJ.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MathViewer.NumberFamily(3);
+				System.out.println("You clicked on the 3 number family option");
+				
+			}
+		});
+		radioItemK.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MathViewer.NumberFamily(5);
+				System.out.println("You clicked on the 5 number family option");
+				
+			}
+		});
+		
+		radioItemL.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MathViewer.NumberFamily(6);
+				System.out.println("You clicked on the 6 number family option");
+				
+			}
+		});
+		
+		radioItemM.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MathViewer.NumberFamily(7);
+				System.out.println("You clicked on the 7 number family option");
+				
+			}
+		});
+		
+		radioItemN.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MathViewer.NumberFamily(8);
+				System.out.println("You clicked on the 8 number family option");
+				
+			}
+		});
+		radioItemO.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MathViewer.NumberFamily(9);
+				System.out.println("You clicked on the 9 number family option");
+				
+			}
+		});
+		
+		radioItemZ.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MathViewer.NumberFamily(4);
+				System.out.println("You clicked on the 4 option");
+				
+			}
+		});
+		radioItemP.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MathViewer.NumberFamily(10);
+				System.out.println("You clicked on the 10 number family option");
+				
+			}
+		});
+		radioItemQ.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MathViewer.NumberFamily(11);
+				System.out.println("You clicked on the 11 number family option");
+				
+			}
+		});
+		radioItemR.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MathViewer.NumberFamily(12);
+				System.out.println("You clicked on the 12 number family option");
 				
 			}
 		});
