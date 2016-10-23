@@ -1,6 +1,7 @@
 package mathGame;
 import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class Quiz{
 //Random Addition or Subtraction
@@ -65,16 +66,30 @@ public static ArrayList<String> Equations(int X, int numfamily){
 	return Questions;
 }
 //Decides if the problem is correct
-/*public static boolean MathChecker(int guess, String[] Quiz){
+public static boolean MathChecker(String[] Quiz){ 
+	String guess = JOptionPane.showInputDialog("Guess: ?");
+	int gParse = Integer.parseInt(guess);
+	int Answers[] = new int[Quiz.length];
+	for(int z = 0; Quiz.length<z;z++){
+		String value = Quiz[z];
+		int newValue = Integer.parseInt(value);
+		System.out.println(newValue);
+		Answers[z]= newValue;
+	}
+	boolean result = false;
 	for(int i = 0; i< 3; i++){
-		if (guess == Quiz[currentQuestion]){//Supposed to check to see if the users guess is equal to to the result of the math problem
-			return true;
+		if (gParse == Answers[i]){//Supposed to check to see if the users guess is equal to to the result of the math problem
+			result = true;
 		}
 		else{
-			return false;
+			result = false;
+			guess = JOptionPane.showInputDialog("Guess Again: ?");
+			gParse = Integer.parseInt(guess);
 		}
 	}
-}*/
+System.out.println(Answers);
+return result;
+}
 
 //Creates and holds the problems in an array Questions
 public static void main(String[]args){
@@ -83,5 +98,6 @@ public static void main(String[]args){
 	Image[] imgs = null;
 	imgs = MathViewer.splitImage("bear.jpg", 4, 4, false);
 	MathViewer mv = new MathViewer(imgs);
+
 		}
 	}

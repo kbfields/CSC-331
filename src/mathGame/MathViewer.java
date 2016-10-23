@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -117,7 +118,9 @@ public class MathViewer extends JFrame {
 		try {
 			imgs = splitImage(getImage(0), 4, 4, false);
 			MathViewer mv = new MathViewer(imgs);
-			Quiz.Equations(15, NumberFamily(0));
+			ArrayList<String> Questions = Quiz.Equations(15, NumberFamily(0));
+			System.out.println(Questions);
+			//Quiz.Solution()
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -129,7 +132,9 @@ public class MathViewer extends JFrame {
 		try {
 			imgs = splitImage(getImage(1), 3, 3, false);
 			MathViewer mv = new MathViewer(imgs);
-			Quiz.Equations(8, NumberFamily(0));
+			ArrayList<String> Questions = Quiz.Equations(8, NumberFamily(0));
+			System.out.println(Questions);
+			//Quiz.Solution()
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -142,7 +147,9 @@ public class MathViewer extends JFrame {
 		try {
 			imgs = splitImage(getImage(2), 2, 2, false);
 			mv = new MathViewer(imgs);
-			Quiz.Equations(3, NumberFamily(0));
+			ArrayList<String> Questions = Quiz.Equations(3, NumberFamily(0));
+			System.out.println(Questions);
+			//Quiz.Solution()
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
