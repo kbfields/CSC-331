@@ -65,12 +65,12 @@ public class GButton extends JButton implements ActionListener  {
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		if (rotate == 0){
-			g2.setColor(Color.darkGray);
+			g2.setColor(Color.BLACK);
 			g2.fillRect(0, 0, w, h);
 		} else if (rotate == 1) {
-			g2.setColor(Color.lightGray);
+			g2.setColor(Color.BLACK);
 			g2.fillRect(0, 0, w, h);
-			g2.setPaint(Color.yellow);
+			g2.setPaint(Color.WHITE);
 			g2.setFont(new Font("Sans-serif", Font.BOLD, 20));
 			g2.drawString(math, w/3, h/2);
 			((JFrame)SwingUtilities.getRoot(this)).setTitle("Testing, one, two, three.");

@@ -98,6 +98,7 @@ public static void main(String[]args){
 	Image[] imgs = null;
 	imgs = MathViewer.splitImage("bear.jpg", 4, 4, false);
 	MathViewer mv = new MathViewer(imgs);
+	
 
 		}
 	}
