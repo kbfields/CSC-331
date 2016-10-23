@@ -11,6 +11,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -27,17 +28,20 @@ public class GButton extends JButton implements ActionListener  {
 	private int h;
 	byte value = 0;
 	private int rotate = 0;
+	private String math;
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public GButton(Image img) {
+	public GButton(Image img, int problem) {
 		this.img = img;
 		w = img.getWidth(this);
 		h = img.getHeight(this);
 		setPreferredSize(new Dimension(w, h));
 		this.addActionListener(this);
+		ArrayList<String> Questions = mathGame.Quiz.Equations(7,0);
+		math = Questions.get(problem);
 	}
 	
 	public void actionPerformed(ActionEvent e){
@@ -68,7 +72,7 @@ public class GButton extends JButton implements ActionListener  {
 			g2.fillRect(0, 0, w, h);
 			g2.setPaint(Color.yellow);
 			g2.setFont(new Font("Sans-serif", Font.BOLD, 20));
-			g2.drawString("Testing, one, two, three.", w/3, h/2);
+			g2.drawString(math, w/3, h/2);
 			((JFrame)SwingUtilities.getRoot(this)).setTitle("Testing, one, two, three.");
 		} else {
 			g2.drawImage(img, 0, 0, this);
@@ -76,13 +80,6 @@ public class GButton extends JButton implements ActionListener  {
 		}
 	}
 	
-	public static void main(String[] args) {
-		JFrame f = new JFrame("Testing GPanel - resize, maximize and back to see behavior");
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.add(new GButton(new ImageIcon("bear.jpg").getImage()));
 
-		f.pack();
-		f.setVisible(true);
-	}
 
 }

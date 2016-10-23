@@ -14,12 +14,14 @@ import javax.swing.JPanel;
 public class GamePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	GButton[] gButtons;
+	private int problem = 0;
 	public GamePanel() {
 	}
 
 	public void addImages(Image[] imgs) {
 		for(Image img : imgs)
-			add(new GButton(img));
+			add(new GButton(img,problem));
+			problem++;
 			
 	}
 	
