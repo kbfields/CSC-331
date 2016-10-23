@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -23,7 +24,7 @@ public class MathViewer extends JFrame {
 		TopMenu topMenu = new TopMenu();
 		setJMenuBar(topMenu.menu(this));
 		gamePanel = new GamePanel();
-		gamePanel.setLayout(new GridLayout(2, 2, 1, 1));
+		gamePanel.setLayout(new GridLayout((int) (Math.sqrt(imgs.length)), (int) (Math.sqrt(imgs.length)), 1, 1));
 		gamePanel.addImages(imgs);
 
 		add(gamePanel, BorderLayout.CENTER);
@@ -96,23 +97,30 @@ public class MathViewer extends JFrame {
 		repaint();
 
 	}
+	public static int NumberFamily(int x){
+		int numberfamily = x;
+		return numberfamily;
+	}
 
 	/**
 	 * @param args
+	 * @return 
 	 */
-	public static void main(String[] args) {
-		Image[] imgs = null;
-		imgs = splitImage("bear.jpg", 4, 4, false);
-		MathViewer mv = new MathViewer(imgs);
+	public static String getImage(int choice){
+		String[] pictures = {"ThemeA.jpg","ThemeB.jpg","ThemeC.jpg"};
+		return pictures[choice];
 	}
-
+	
+	
 	static void Size4x4() {
 		// TODO Auto-generated method stub
 		Image[] imgs = null;
-		//String fileName = ImageSplitter.getFileName()
 		try {
-			imgs = splitImage("ThemeA.jpg", 4, 4, false);
+			imgs = splitImage(getImage(0), 4, 4, false);
 			MathViewer mv = new MathViewer(imgs);
+			ArrayList<String> Questions = Quiz.Equations(15, NumberFamily(0));
+			System.out.println(Questions);
+			//Quiz.Solution()
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -122,8 +130,11 @@ public class MathViewer extends JFrame {
 		// TODO Auto-generated method stub
 		Image[] imgs = null;
 		try {
-			imgs = splitImage("ThemeB.jpg", 3, 3, false);
+			imgs = splitImage(getImage(1), 3, 3, false);
 			MathViewer mv = new MathViewer(imgs);
+			ArrayList<String> Questions = Quiz.Equations(8, NumberFamily(0));
+			System.out.println(Questions);
+			//Quiz.Solution()
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -132,13 +143,30 @@ public class MathViewer extends JFrame {
 	static void Size2x2() {
 		// TODO Auto-generated method stub
 		Image[] imgs = null;
+		MathViewer mv;
 		try {
-			imgs = splitImage("ThemeC.jpg", 2, 2, false);
-			MathViewer mv = new MathViewer(imgs);
+			imgs = splitImage(getImage(2), 2, 2, false);
+			mv = new MathViewer(imgs);
+			ArrayList<String> Questions = Quiz.Equations(3, NumberFamily(0));
+			System.out.println(Questions);
+			//Quiz.Solution()
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 	}
+}
+
+/*		Image[] imgs = null;
+		MathViewer mv = new MathViewer(imgs);
+		try {
+			imgs = splitImage(getImage(" "), 4, 4, false);
+			MathViewer mv = new MathViewer(imgs);
+			Quiz.Equations(15, NumberFamily(0));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }
+*/
