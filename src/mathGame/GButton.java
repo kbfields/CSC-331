@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /**
@@ -61,7 +62,10 @@ public class GButton extends JButton implements ActionListener  {
 				rotate = 1;
 				break;
 			case 2:
+				String guess = JOptionPane.showInputDialog("Type your answer to the given equation.");
 				rotate = 2;
+				System.out.println(Integer.parseInt(guess));
+				System.out.println(math);
 				break;
 		   }
 		}
@@ -82,7 +86,7 @@ public class GButton extends JButton implements ActionListener  {
 			g2.setFont(new Font("Sans-serif", Font.BOLD, 20));
 			g2.drawString(math, w/3, h/2);
 			((JFrame)SwingUtilities.getRoot(this)).setTitle("Testing, one, two, three.");
-		} else {
+		} else if (rotate == 2){
 			g2.drawImage(img, 0, 0, this);
 			((JFrame)SwingUtilities.getRoot(this)).setTitle("Testing GPanel");
 		}
