@@ -8,7 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
- * @author Jack
+ * GamePAnel class extends JFrame and assists in creating the game window
+ * @author mingo_000
  *
  */
 public class GamePanel extends JPanel {
@@ -17,7 +18,11 @@ public class GamePanel extends JPanel {
 	private int problem = 0;
 	public GamePanel() {
 	}
-
+	/**
+	 * method addImages sends images to class GButton
+	 * iterates variable problems
+	 * @param imgs
+	 */
 	public void addImages(Image[] imgs) {
 		for(Image img : imgs)
 			add(new GButton(img,problem));

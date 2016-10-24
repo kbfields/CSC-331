@@ -96,9 +96,8 @@ public static void main(String[]args){
 	ArrayList<String> Questions = Equations(7,0);
 	System.out.print(Questions);
 	Image[] imgs = null;
-	imgs = MathViewer.splitImage("bear.jpg", 4, 4, false);
+	imgs = MathViewer.splitImage("bear.jpg", 2, 2, false);
 	MathViewer mv = new MathViewer(imgs);
 	
-
 		}
 	}

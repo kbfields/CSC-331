@@ -19,7 +19,9 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 /**
- * @author Jack
+ * Class GButton extends JButton and implements ActionListener
+ * creates JButtons for class Gpanel
+ * @author mingo_000
  *
  */
 public class GButton extends JButton implements ActionListener  {
@@ -29,11 +31,13 @@ public class GButton extends JButton implements ActionListener  {
 	byte value = 0;
 	private int rotate = 0;
 	private String math;
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
-
+	/**
+	 * GButton class constructor
+	 * @param img provides an image for use in JButton icon
+	 * @param problem an integer that allows a specific item in an ArrayList to be used
+	 */
 	public GButton(Image img, int problem) {
 		this.img = img;
 		w = img.getWidth(this);
@@ -43,7 +47,9 @@ public class GButton extends JButton implements ActionListener  {
 		ArrayList<String> Questions = mathGame.Quiz.Equations(7,0);
 		math = Questions.get(problem);
 	}
-	
+	/**
+	 * performs action when listener detects activity
+	 */
 	public void actionPerformed(ActionEvent e){
 		value++;
 		value%=3;
@@ -61,7 +67,9 @@ public class GButton extends JButton implements ActionListener  {
 		}
 
 
-
+	/**
+	 * paintComponent for GButton
+	 */
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		if (rotate == 0){
